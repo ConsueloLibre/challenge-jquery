@@ -29,7 +29,17 @@ $(document).ready( function(){
 */
 function renderHighlightedRecipes(recipesArray) {
 	console.log('Recipes: ', recipesArray);
-}
+	var recipes = recipesArray;
+	// console.log(recipes.length);
+
+	for ( var i=0; i < recipes.length; i++){
+		if(recipes[i].highlighted===true){
+			renderRecipe(recipes[i]);
+			console.log(recipes[i]);
+		}
+	}
+
+};
 
 /*
 * Función que se encarga de pintar UNA recetas que tenga
