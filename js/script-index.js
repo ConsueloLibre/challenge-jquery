@@ -16,10 +16,10 @@ $(document).ready( function(){
 	 };
 	 printNews();
 
-	 var activitiesArray="";
+	 //var activitiesArray="";
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
-	renderActivities(activitiesArray);
+	renderActivities(activities);
 
 
 
@@ -76,11 +76,31 @@ function renderRecipe(recipe) {
 function renderActivities(activitiesArray) {
 	console.log(activitiesArray);
 
-	if(activitiesArray.length >=0){
+	if(activitiesArray.length <= 0){
 		$('.wrapper-message').hide();
 	} else {
 		for(var i = 0; i <activitiesArray.length; i++){
-			renderActivities(activitiesArray[i]);
+
+			$('.wrapper-message').empty();
+			$('.wrapper-message').append("<a href='#' class='item-activity'>" +
+				"<span class='attribution'>" +
+					"<span class='avatar'>" +
+				      "<img src='" + activitiesArray[i].userAvatar + "'class='image-avatar'>" +
+			   		"</span>" +
+
+			    	"<span class='meta'>" +
+			      		"<span class='author'>" + activitiesArray[i].userName + "</span> made" +
+			      		"<span class='recipe'>" + activitiesArray[i].recipeName + "</span>:'" + activitiesArray[i].text +
+			      		"<span class='location'>&mdash;" + activitiesArray[i].place + "</span>" +
+			   " </span>" +
+
+			  "</span>" +
+
+			  "<div class='bg-image' style='background-image: url'" + activitiesArray[i].image+ "'></div>" +
+
+			"</a>");
+
+			// console.log(activitiesArray[i]);
 		};
 	}
 
