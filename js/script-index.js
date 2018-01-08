@@ -15,8 +15,11 @@ $(document).ready( function(){
 		 $("#news").append($("<h3>NUEVAS RECETAS </h3>"));
 	 };
 	 printNews();
+
+	 var activitiesArray="";
 	//La variable "recipesArray" esta declarada en el archivo "data/recipes.js"
 	renderHighlightedRecipes(recipesArray);
+	renderActivities(activitiesArray);
 
 
 
@@ -71,7 +74,17 @@ function renderRecipe(recipe) {
 * Función que se encarga de pintar todas las actividades
 */
 function renderActivities(activitiesArray) {
-	console.log('Activities: ', activitiesArray);
+	console.log(activitiesArray);
+
+	if(activitiesArray.length >=0){
+		$('.wrapper-message').hide();
+	} else {
+		for(var i = 0; i <activitiesArray.length; i++){
+			renderActivities(activitiesArray[i]);
+		};
+	}
+
+
 }
 
 /*
